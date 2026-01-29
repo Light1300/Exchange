@@ -29,3 +29,15 @@ export async function getTrades(market:string): Promise<Trade[]>{
     const response = await axios.get(`${BASE_URL}/trades?symbol=${market}`)
     return response.data;
 }
+
+
+export async function getKlines( market: string, interval: string, startTines: number, endTime: number):Promise<KLine[]> {
+    const response = await axios.get(`${BASE_URL}/klines?symbol=${market}&interval=${interval}&startTime=${startTines}&endTime=${endTime}`);
+    const data: KLine[]= response.data;
+    return data.sort((x,y) => (Number(x.end) < Number(y.end)? -1:1));
+}
+
+export async function getMarkets(): Promise<string[]> {
+    const response = await axios.get(`${BASE_URL}/markets`);
+    return response.data;
+}
