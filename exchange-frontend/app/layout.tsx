@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Appbar } from "./components/Appbar";
+import { Metadata } from "next";
 
-<<<<<<< Updated upstream
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: "My Exchange App",
 };
 
-=======
->>>>>>> Stashed changes
 export default function RootLayout({
   children,
 }: {
@@ -19,15 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-<<<<<<< Updated upstream
       <body
         className={inter.className}>
           <Appbar />
         {children}
       </body>
-=======
-      <body>{children}</body>
->>>>>>> Stashed changes
     </html>
   );
 }
