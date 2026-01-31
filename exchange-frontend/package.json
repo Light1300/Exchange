@@ -15,12 +15,8 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-<<<<<<< Updated upstream
     "@tailwindcss/postcss": "^4",
     "@types/estree": "^1.0.8",
-=======
-    "@tailwindcss/postcss": "^4.1.18",
->>>>>>> Stashed changes
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
