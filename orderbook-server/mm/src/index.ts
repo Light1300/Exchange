@@ -13,8 +13,8 @@ async function main(){
     const totalBids = openOrders.data.filter((o: any ) => o.side === "buy").length;
     const totalAsks = openOrders.data.filter((o: any)=> o.side ==="sell").length;
 
-    const canclledBids = await cancleBidMoreThan(openOrders.data, price);
-    const cancleAsks = await cancleAsksLessThan(openOrders.data, price);
+    const canclledBids = await cancleBidsMoreThan(openOrders.data, price);
+    const cancleAsks = await cancelAsksLessThan(openOrders.data, price);
 
     let bidsToAdd = TOTAL_ASK - totalBids - cancleAsks;
     let asksToAdd = TOTAL_ASK - totalAsks - cancleAsks;
