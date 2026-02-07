@@ -1,6 +1,8 @@
+
 import { Router } from "express";
+
 export const tickersRouter = Router();
 
-tickersRouter.get("/", async(req:Request, res:Response) =>{
+tickersRouter.get("/", async (req, res) => {    
     res.json({});
-})
+});

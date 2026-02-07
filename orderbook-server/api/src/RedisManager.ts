@@ -7,7 +7,7 @@ import { json } from "stream/consumers";
 export class RedisManager {
     private client: RedisClientType;
     private publisher: RedisClientType;
-    private static instance: RedisManager;
+    static instance: RedisManager;
 
 
     private constructor(){
@@ -17,7 +17,7 @@ export class RedisManager {
         this.publisher.connect();
     }   
 
-    private static  getInstance():RedisManager {
+    public  static  getInstance():RedisManager {
         if(!this.instance){
             this.instance = new RedisManager();
         }
