@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getDepth, getKlines, getTicker, getTrades } from "../../utils/httpClient";
 import { BidTable } from "./BidTable";
 import { AskTable } from "./AskTable";
-import { SignalingManager } from "@/app/utils/SignalingManager";
+import  { SignalingManager }  from "../../utils/SignalManager";
 
 export function Depth({ market }: {market: string}) {
     const [bids, setBids] = useState<[string, string][]>();

@@ -36,6 +36,7 @@ export class SignalingManager {
             const message = JSON.parse(event.data);
             const type = message.data.e;
             if (this.callbacks[type]) {
+                //@ts-ignore
                 this.callbacks[type].forEach(({ callback}) => {
                     if (type === "ticker") {
                         const newTicker: Partial<Ticker> = {
