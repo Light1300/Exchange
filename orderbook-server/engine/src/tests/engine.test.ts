@@ -1,48 +1,53 @@
-import { describe, expect, it, vi } from  "vitest";
-import { Engine } from "../trade/Engine.js";
-import { RedisManager } from "../RedisManager.js";
-import { CREATE_ORDER } from "../types/toApi.js";
+import { describe, expect, it, vi } from "vitest";
+import { Engine } from "../trade/Engine";
+import { RedisManager } from "../RedisManager";
+import { CREATE_ORDER } from "../types/fromApi";
 
-vi.mock("../RedisManager", ()=>({
+vi.mock("../RedisManager", () => ({
     RedisManager: {
-        getInstance: () =>({
-            publishMessage: vi.fn(),
-            sendToApi: vi.fn(),
-            pushMessage: vi.fn(),
-        })
+      getInstance: () => ({
+        publishMessage: vi.fn(),
+        sendToApi: vi.fn(),
+        pushMessage: vi.fn()
+      })
     }
 }));
 
-describe("Engine", ()=>{
-    it("Publishes Trade updates", () =>{
+
+describe("Engine", () => {
+    //TODO: How to test the singleton class RedisManager directly?
+    it("Publishes Trade updates", () => {
         const engine = new Engine();
         const publishSpy = vi.spyOn(engine, "publishWsTrades");
         engine.process({
             message: {
-                type:CREATE_ORDER,
-                data:{
+                type: CREATE_ORDER,
+                data: {
                     market: "TATA_INR",
                     price: "1000",
                     quantity: "1",
                     side: "buy",
-                    userId: "1",
+                    userId: "1"
                 }
             },
-            clientId:"1"
+            clientId: "1"
         });
+
         engine.process({
-            message:{ 
-                type:CREATE_ORDER,
+            message: {
+                type: CREATE_ORDER,
                 data: {
                     market: "TATA_INR",
-                    price:"1001",
+                    price: "1001",
                     quantity: "1",
                     side: "sell",
-                    userId:"2",
+                    userId: "2"
                 }
             },
-            clientId:"1",
+            clientId: "1"
         });
+        
         expect(publishSpy).toHaveBeenCalledTimes(2);
+
     });
-})
+});

@@ -1,4 +1,5 @@
 
+
 export type TickerUpdateMessage = {
     type: "ticker",
     data: {
@@ -9,9 +10,9 @@ export type TickerUpdateMessage = {
         V?: string,
         s?: string,
         id: number,
-        e: "ticker",
+        e: "ticker"
     }
-}
+} 
 
 export type DepthUpdateMessage = {
     type: "depth",
@@ -19,7 +20,7 @@ export type DepthUpdateMessage = {
         b?: [string, string][],
         a?: [string, string][],
         id: number,
-        e: "depth",
+        e: "depth"
     }
 }
 

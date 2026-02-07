@@ -1,14 +1,15 @@
+
 export const SUBSCRIBE = "SUBSCRIBE";
 export const UNSUBSCRIBE = "UNSUBSCRIBE";
 
-export const type SubscribeMessage = {
+export type SubscribeMessage = {
     method: typeof SUBSCRIBE,
-    params: string[],
-} 
+    params: string[]
+}
 
-export const type UnsubscribeMessage = {
+export type UnsubscribeMessage = {
     method: typeof UNSUBSCRIBE,
-    params: string[],
-}  
+    params: string[]
+}
 
 export type IncomingMessage = SubscribeMessage | UnsubscribeMessage;
