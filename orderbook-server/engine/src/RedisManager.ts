@@ -1,8 +1,8 @@
 import { DEPTH_UPDATE, TICKER_UPDATE } from "./trade/events";
 import { RedisClientTypes, createClient } from "redis";
-import { ORDER_UPDATE, TRADE_ADDED } from "./types/index.js";
-import { WsMessage } from "./types/toWs.js";
-import { MessageToApi } from "./types/toApi.js";
+import { ORDER_UPDATE, TRADE_ADDED } from "./types/index";
+import { WsMessage } from "./types/toWs";
+import { MessageToApi } from "./types/toApi";
 
 type DbMessage = {
     type: typeof TRADE_ADDED,
